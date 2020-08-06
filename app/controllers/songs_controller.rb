@@ -1,5 +1,8 @@
 class SongsController < ApplicationController
+  before_action :draw_song, only: [ :show ]
+
   def index
+    @songs = Song.all
   end
 
   def show
@@ -44,6 +47,10 @@ class SongsController < ApplicationController
   end
 
   private
+
+  def draw_song
+    @song = Song.find(params[:id])
+  end
 
   def song_params
     params.require(:song).permit(:title)
