@@ -1,0 +1,6 @@
+
+  index page lists songs in 'Artist Name - Song Title' format 
+  <br><br>
+  <% @songs.each do |song|%>
+    <%=link_to "#{song.artist_name} - #{song.title}", song%>
+  <%end%>
