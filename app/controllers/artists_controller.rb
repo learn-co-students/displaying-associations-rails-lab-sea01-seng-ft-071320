@@ -1,8 +1,10 @@
 class ArtistsController < ApplicationController
   def index
+    @artist = Artist.all
   end
 
   def show
+    @artist = Artist.find_by(params[:id])
   end
 
   def new
@@ -35,6 +37,8 @@ class ArtistsController < ApplicationController
     end
   end
 
+  
+  
   def destroy
     @artist = Artist.find(params[:id])
     @artist.destroy
